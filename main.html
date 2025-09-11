@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Cursor Bubbles</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0d1117;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.8;
+      animation: moveUp 1.2s ease-out forwards;
+    }
+
+    @keyframes moveUp {
+      0% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--x-move), var(--y-move)) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const colors = ["#ffffff", "#ffff66"]; // white + yellow
+
+    document.addEventListener("mousemove", (e) => {
+      for (let i = 0; i < 5; i++) {   // multiple bubbles per move
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+        document.body.appendChild(bubble);
+
+        // Random size
+        const size = Math.random() * 15 + 8;
+        bubble.style.width = size + "px";
+        bubble.style.height = size + "px";
+
+        // Random color
+        bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        // Initial position near cursor
+        const x = e.pageX + (Math.random() * 30 - 15);
+        const y = e.pageY + (Math.random() * 30 - 15);
+        bubble.style.left = x - size / 2 + "px";
+        bubble.style.top = y - size / 2 + "px";
+
+        // Random movement direction (slightly up & side)
+        const xMove = (Math.random() * 60 - 30) + "px"; // left-right
+        const yMove = (-Math.random() * 60 - 20) + "px"; // always upward
+        bubble.style.setProperty("--x-move", xMove);
+        bubble.style.setProperty("--y-move", yMove);
+
+        // Remove after animation
+        setTimeout(() => {
+          bubble.remove();
+        }, 1200);
+      }
+    });
+  </script>
+</body>
+</html>
