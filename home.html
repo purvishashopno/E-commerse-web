@@ -16,6 +16,10 @@
 </head>
 
 <body>
+  <div id="preloader">
+      <img src="images/logo.png" alt="Loading..."> <!-- 🔹 Tamaro logo -->
+    <!-- <p style="color:#fff; margin-top:15px; font-size: 20px; font-weight:700;"><img src="images/hand.png" alt="">Welcome to Sefty Controls & Devices LTD.<img src="images/hand.png" alt=""></p> -->
+  </div>
   <div class="menu-section-area">
     <div class="navbar-topbar">
       <div class="container">
@@ -1264,6 +1268,18 @@
 
 
 </body>
+
+<script>
+    // Preloader hide after 2 sec
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        document.getElementById("preloader").classList.add("hide");
+      }, 2000); // 2 sec wait
+    });
+  </script>
+
+
+
 <script>
   const btn = document.querySelector(".lang-btn");
   const menu = document.querySelector(".lang-menu");
