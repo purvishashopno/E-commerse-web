@@ -337,6 +337,7 @@
 
 .navbar1{
     padding: 0%;
+    
 }
 
 .bg-color{
@@ -1086,39 +1087,7 @@ l .category-info h5 {
     flex-direction: column;
     padding: 5px 0px;
 }
-/* 
-.footer-subscribe-form form {
-    width: 370px;
-}
 
-.position-relative {
-    position: relative !important;
-}
-
-.footer-subscribe-form input {
-    display: inline-block;
-    width: 100%;
-    border: 1px solid var(--white-color);
-    height: 35px;
-    padding: 15px;
-}
-
-.bg-transparent {
-    --bs-bg-opacity: 1;
-    background-color: transparent !important;
-}
-
-.footer-subscribe-form button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 35px;
-    width: 49px;
-}
-
-*, ::after, ::before {
-    box-sizing: border-box;
-} */
 
 .footer-middle-area{
     padding: 25px;
@@ -1165,6 +1134,8 @@ l .category-info h5 {
         padding: 25px 0px; 
     }
 
+
+    
 
 
 

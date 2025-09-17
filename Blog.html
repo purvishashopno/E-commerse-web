@@ -18,6 +18,9 @@
 </head>
 
 <body>
+     <div id="preloader">
+      <img src="images/logo.png" alt="Loading..."> <!-- 🔹 Tamaro logo -->
+  </div>
     <div class="main">
         <nav class="navbar1 navbar-expand-lg   ">
             <div class="container c1">
@@ -313,5 +316,13 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Preloader hide after 2 sec
+    window.addEventListener("load", function() {
+      setTimeout(function() {
+        document.getElementById("preloader").classList.add("hide");
+      }, 2000); // 2 sec wait
+    });
+  </script>
 
 </html>
