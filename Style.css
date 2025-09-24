@@ -46,6 +46,27 @@
     transition: opacity 0.6s ease, visibility 0.6s;
 }
 
+@media (max-width:768px) {
+    #preloader{
+        width: 425px;
+    }
+    
+}
+
+@media (max-width:375px) {
+    #preloader{
+        width: 375px;
+    }
+    
+}
+
+@media (max-width:320px) {
+    #preloader{
+        width: 320px;
+    }
+    
+}
+
 #preloader img {
     width: 150px;
     animation: zoomInOut 1.5s infinite ease-in-out;
@@ -87,6 +108,13 @@
     height: 100%;
     background-color: #81ac28;
 
+}
+
+@media (max-width:768px) {
+    .navbar-topbar{
+        display: none;
+    }
+    
 }
 
 .container {
@@ -297,9 +325,13 @@
 
 /* middel */
 
+
+
+
 @media (max-width:768px) {
 .navbar-middle{
     padding: 20px 0 !important;
+       display: none;
 }
     
 }
@@ -423,6 +455,14 @@
 
 }
 
+@media (max-width:768px) {
+    .navbar1{
+        height: 50px;
+    }
+    
+}
+
+
 .bg-color {
     background-color: black;
 }
@@ -464,9 +504,40 @@
   background-image: url("images/menu.png");
   width: 32px;
     position: relative;
-    left: 636px;
-
+    left: 553px;
+}  
 }
+
+@media (max-width:425px) {
+.navbar-toggler-icon {
+  
+    left: 225px;
+}  
+}
+
+@media (max-width:375px) {
+.navbar-toggler-icon {
+    left: 188px;
+}  
+}
+
+@media (max-width: 320px) {
+    .navbar-toggler-icon {
+        left: 115px;
+    }
+}
+
+@media (max-width:768px) {
+    .navbar-nav{
+        background-color: black;
+    }
+    
+}
+
+@media (max-width:768px) {
+    .dark{
+        width: 120px;
+    }
     
 }
 
@@ -485,11 +556,25 @@
     background-color: #00000075;
 }
 
+@media (max-width:768px){
+  .text-success {
+         margin-top: 100px;
+}
+
+}
+
+
 /* new section */
 
 section {
     padding-top: 47px;
     padding-bottom: 36px;
+}
+
+@media (max-width:768px) {
+    .section{
+        padding-top: 17px;
+    }
 }
 
 .pb-2 {
@@ -728,6 +813,33 @@ section {
     font-weight: 500 !important;
 }
 
+.product-title {
+  white-space: nowrap;      /* ek line ma rakhe */
+  overflow: hidden;         /* extra text hide kare */
+  text-overflow: ellipsis;  /* ... add kare */
+  display: block;           /* safe for inline elements */
+  max-width: 100%;          /* container ni width sudhi */
+}
+
+/* 768 px screen size mate */
+@media (max-width: 768px) {
+  .product-title {
+    max-width: 200px;   /* width set karvi jaruri */
+  }
+}
+
+@media (max-width: 375px) {
+  .product-title {
+    max-width: 200px;   /* width set karvi jaruri */
+  }
+}
+
+@media (max-width: 320px) {
+  .product-title {
+    max-width: 200px;   /* width set karvi jaruri */
+  }
+}
+
 .content p {
     margin-bottom: 0;
     font-size: 1rem;
@@ -819,6 +931,13 @@ section {
 }
 
 
+@media (max-width:768px) {
+.organic-natural-cta-content {
+        padding: 25px 0px;
+    }
+    
+}
+
 .font-18 {
     font-size: 1.125rem;
 }
@@ -847,6 +966,12 @@ section {
     width: 53%;
 }
 
+@media (max-width:425px) {
+.organic-natural-cta-content .organic-natural-cta-para {
+  width: 300px;
+}  
+}
+
 .mb-20 {
     margin-bottom: 20px;
     font-size: 1rem;
@@ -873,6 +998,29 @@ section {
     z-index: 1;
 }
 
+@media (max-width:768px) {
+    .organic-natural-products-cta-right .cta-offer{
+    left: -80px;
+    top: -20px;
+    }
+}
+
+@media (max-width:425px) {
+    .organic-natural-products-cta-right .cta-offer{
+        left: -4px;
+        top: -20px;
+    }
+}
+
+@media (max-width:375px) {
+    .organic-natural-products-cta-right .cta-offer{
+        left: 44px;
+        top: -10px;
+
+    }
+}
+
+
 .font-25 {
     font-size: 1.5625rem;
 }
@@ -897,6 +1045,13 @@ section {
 .img-fluid {
     max-width: 100%;
     height: auto;
+}
+
+@media (max-width:375px) {
+    .img-fluid{
+        width: 240px;
+    }
+    
 }
 
 .organic-natural-products-cta-right img {
@@ -1090,13 +1245,41 @@ l .category-info h5 {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width:768px) {
+    .owl-nav button{
+      position: absolute;
+    top: 30%;
+    background: #fff !important;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+
+
 .owl-nav .owl-prev {
     left: -45px;
+}
+
+@media (max-width:768px) {
+    .owl-nav .owl-prev{
+     left: 7px;
+    }
 }
 
 .owl-nav .owl-next {
     right: -45px;
 }
+
+@media (max-width:768px) {
+    .owl-nav .owl-next{
+     right: 7px;
+    }
+}
+
 
 
 
@@ -1270,6 +1453,12 @@ l .category-info h5 {
 
 }
 
+@media (max-width: 1024px) {
+.subscribe-box{
+    width: 291px;
+  }
+}
+
 
 @media (max-width:768px) {
     .subscribe-box {
@@ -1313,6 +1502,20 @@ l .category-info h5 {
 
 button img {
     width: 20px;
+}
+
+@media (max-width:1024px) {
+    button img{
+        margin-right: 10px !important;
+    }
+    
+}
+
+@media (max-width:768px) {
+    button img{
+        margin-right: 20px !important;
+    }
+    
 }
 
 .pt-25 {
@@ -1410,6 +1613,14 @@ button img {
     padding-left: 320px;
 }
 
+@media (max-width: 1024px) {
+  .collapse1{
+   padding-left: 103px;
+  }
+}
+
+
+
 .col-12 {
     position: relative;
     z-index: 1111;
@@ -1458,6 +1669,13 @@ button img {
     right: 0;
 }
 
+@media (max-width: 1024px) {
+  .mission-img-1{
+    width: 62%;
+  }
+}
+
+
 .position-absolute {
     position: absolute !important;
 }
@@ -1474,6 +1692,12 @@ button img {
     box-shadow: 0px 12px 56px 0px rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 1024px) {
+  .mission-img-2{
+    width: 62%;
+  }
+}
+
 .mission-overview-content h2 {
     font-size: 2.5rem;
     line-height: 58px;
@@ -1482,6 +1706,12 @@ button img {
     font-weight: bold;
     margin: 0;
     color: black;
+}
+
+@media (max-width: 1024px) {
+  .mission-overview-content h2{
+        line-height: 43px;
+  }
 }
 
 .mission-overview-content p {
@@ -1500,6 +1730,12 @@ button img {
 
 .mission-text p {
     padding-right: 180px;
+}
+
+@media (max-width: 1024px) {
+  .mission-text p{
+  padding-right: 0px;
+  }
 }
 
 .mb-5 {
