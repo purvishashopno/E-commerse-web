@@ -3,71 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Moving Cursor Bubbles</title>
+  <title>Responsive Sidebar</title>
   <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #0d1117;
-      overflow: hidden;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; }
+
+    /* Header */
+    header {
+      width: 100%;
+      background: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+    .logo { font-size: 20px; font-weight: bold; color: #333; }
+    nav { display: flex; gap: 20px; }
+    nav a { text-decoration: none; color: #333; font-size: 16px; }
+    nav a:hover { color: green; }
+    .menu-icon { font-size: 26px; cursor: pointer; display: none; }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+      transition: 0.4s ease;
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 2000;
+    }
+    .sidebar.active { right: 0; }
+    .sidebar .close-btn {
+      font-size: 24px;
+      cursor: pointer;
+      margin-bottom: 15px;
+      display: block;
+      text-align: right;
     }
 
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      opacity: 0.8;
-      animation: moveUp 1.2s ease-out forwards;
+    /* Language Dropdown */
+    .language-select select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 15px;
     }
 
-    @keyframes moveUp {
-      0% {
-        transform: translate(0, 0) scale(0.5);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(var(--x-move), var(--y-move)) scale(1.5);
-        opacity: 0;
-      }
+    /* Icons */
+    .sidebar-icons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+    .sidebar-icons sup {
+      font-size: 12px;
+      color: green;
+    }
+
+    /* Search Box */
+    .sidebar-search {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    .sidebar-search input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px 0 0 5px;
+    }
+    .sidebar-search button {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-left: 0;
+      background: #8dc63f;
+      color: white;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    /* Tabs */
+    .sidebar-tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+    .sidebar-tabs button {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ddd;
+      background: #f5f5f5;
+      cursor: pointer;
+    }
+    .sidebar-tabs .active {
+      background: #8dc63f;
+      color: white;
+      border-color: #8dc63f;
+    }
+
+    /* Navigation */
+    .sidebar-nav a {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f1f1;
+      color: #333;
+      text-decoration: none;
+    }
+    .sidebar-nav a:hover { color: green; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .menu-icon { display: block; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">MyLogo</div>
+    <div class="menu-icon" id="menuBtn">&#9776;</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <span class="close-btn" id="closeBtn">&times;</span>
+
+    <!-- Language Dropdown -->
+    <div class="language-select">
+      <select>
+        <option value="en">🇺🇸 English</option>
+        <option value="fr">🇫🇷 French</option>
+        <option value="hi">🇮🇳 Hindi</option>
+      </select>
+    </div>
+
+    <!-- Icons -->
+    <div class="sidebar-icons">
+      <span>❤️<sup>17</sup></span>
+      <span>🛒<sup>04</sup></span>
+      <span>👤</span>
+    </div>
+
+    <!-- Search -->
+    <div class="sidebar-search">
+      <input type="text" placeholder="Search here...">
+      <button>🔍</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="sidebar-tabs">
+      <button class="active">Menu</button>
+      <button>Categories</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Service</a>
+      <a href="#">Pages</a>
+      <a href="#">Shop</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Script -->
   <script>
-    const colors = ["#ffffff", "#ffff66"]; // white + yellow
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const sidebar = document.getElementById('sidebar');
 
-    document.addEventListener("mousemove", (e) => {
-      for (let i = 0; i < 5; i++) {   // multiple bubbles per move
-        const bubble = document.createElement("div");
-        bubble.classList.add("bubble");
-        document.body.appendChild(bubble);
-
-        // Random size
-        const size = Math.random() * 15 + 8;
-        bubble.style.width = size + "px";
-        bubble.style.height = size + "px";
-
-        // Random color
-        bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
-
-        // Initial position near cursor
-        const x = e.pageX + (Math.random() * 30 - 15);
-        const y = e.pageY + (Math.random() * 30 - 15);
-        bubble.style.left = x - size / 2 + "px";
-        bubble.style.top = y - size / 2 + "px";
-
-        // Random movement direction (slightly up & side)
-        const xMove = (Math.random() * 60 - 30) + "px"; // left-right
-        const yMove = (-Math.random() * 60 - 20) + "px"; // always upward
-        bubble.style.setProperty("--x-move", xMove);
-        bubble.style.setProperty("--y-move", yMove);
-
-        // Remove after animation
-        setTimeout(() => {
-          bubble.remove();
-        }, 1200);
-      }
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+    });
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('active');
     });
   </script>
+
 </body>
 </html>
