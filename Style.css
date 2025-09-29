@@ -651,6 +651,13 @@ section {
     transition: all 0.4s ease;
 }
 
+@media (max-width:1024px) {
+    .product-item-img a img {
+        width: 100%;
+    }
+}
+
+
 @media (max-width:768px) {
     .product-item-img a img {
         width: 100%;
@@ -1522,7 +1529,7 @@ button img {
 
 @media (max-width:768px) {
     button img{
-        margin-right: 20px !important;
+        margin-right: 3px !important;
     }
     
 }
@@ -1538,6 +1545,13 @@ button img {
     
 }
 
+
+@media (max-width:425px) {
+    .footer-logo img{
+        width: 110px;
+    }
+    
+}
 
 
 
@@ -1662,6 +1676,7 @@ button img {
   top: 0;
   background-color: rgba(0, 0, 0, .58);
 }
+
 @media (max-width:768px) {
   .main::after {
     height: 312px;
@@ -1698,22 +1713,19 @@ button img {
 }
  }
 
-
-
-/* @media (max-width:768px) {
+ @media (max-width:768px) {
     .c1 {
   display: flex;
- left: 709px !important;
+ gap: 540px !important;
   align-items: center;
   padding: 20px;
 }
-
 }
 
 @media (max-width:425px) {
     .c1 {
   display: flex;
-  gap: 220px !important;
+  gap: 260px !important;
   align-items: center;
   padding: 20px;
 }
@@ -1737,8 +1749,15 @@ button img {
   padding: 20px;
 }
 
-} */
+} 
+
+@media (max-width:425px) {
+    .navbar-brand img{
+        width: 120px;
+}
  
+}
+
 
 
 /* Sidebar */
@@ -2244,6 +2263,14 @@ section {
     display: flex !important;
 }
 
+.product-title1 {
+  white-space: nowrap;      
+  overflow: hidden;         
+  text-overflow: ellipsis; 
+  display: block;           
+  max-width: 100%;        
+}
+
 .shop-search-box form {
     background-color: #e1e1e1 !important;
     height: 44px;
@@ -2348,7 +2375,7 @@ section {
 .price-filter p {
     font-size: 16px;
     margin-bottom: 20px;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .price-filter button {
@@ -2360,6 +2387,13 @@ section {
 .trending-items-list-wrap {
     display: flex;
     gap: 18px;
+}
+
+@media (max-width:1024px) {
+    .trending-items-list-wrap{
+        gap: 1px;
+    }
+    
 }
 
 .mango {
